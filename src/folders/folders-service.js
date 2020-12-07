@@ -1,11 +1,13 @@
 const foldersService = {
     getAllFolders(knex){
-        knex.select('*').from('folders')
+       return knex('folders').select('*')
     }, 
     getFolderById(knex, id){
-        knex.select('*').from('folders').where({id})
+       return knex.select('*').from('folders').where({id})
     }, 
     addFolder(knex, folder){
-        knex.into('folders').insert(folder)
+       return knex.into('folders').insert(folder).returning('*').then(rows => rows[0])
     }
 }
+
+module.exports = foldersService
