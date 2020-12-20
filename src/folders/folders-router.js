@@ -17,7 +17,6 @@ foldersRouter
     const db = req.app.get('db')
     foldersService.getAllFolders(db)
     .then(folders => {
-        console.log("inside then")
         return res.status(200).json(folders.map(serializeFolder))
     })
     .catch(next)
@@ -30,7 +29,6 @@ foldersRouter
         return res.status(400).json({error: {message: "Missing name in request body"}})
     }
     FoldersService.addFolder(db, newFolder).then(folder => {
-        console.log(folder)
         return res
         .location(path.posix.join(req.originalUrl, `/${folder.id}`))
         .status(201)

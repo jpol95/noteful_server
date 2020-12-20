@@ -33,7 +33,6 @@ notesRouter
 
     notesService.addNote(db, newNote)
     .then(note => {
-        console.log(note)
         return res
         .status(201)
         .location(path.posix.join(req.originalUrl, `/${note.id}`))
@@ -50,7 +49,6 @@ notesRouter
     .then(note => {
         if (!note) return res.status(400).json({error : {message: "Could not find note"}})
         res.note = note
-        // console.log('THIS IS FROM RES' + note)
         next()
     }).catch(next)
 })
@@ -58,7 +56,6 @@ notesRouter
     return res.status(400).json(serializeNote(res.note))
 })
 .delete((req, res, next) => {
-    // console.log('THIS IS ALSO AN ID FROM ROUTER' + res.note)
     const {id} = res.note
     const db = req.app.get('db')
     notesService.deleteNote(db, id)
