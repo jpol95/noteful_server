@@ -14,7 +14,7 @@ const app = express();
 const morganOption = (NODE_ENV === 'production')
 
 app.use(allowCrossDomain)
-app.options(cors());
+// app.options(cors());
 app.use(morgan(morganOption));
 app.use(helmet());
 
