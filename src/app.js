@@ -26,7 +26,7 @@ app.use(helmet());
 
 
 app.use(errorHandler)
-app.use(validateBearerToken);
+// app.use(validateBearerToken);
 
 app.use("/api/folders", folderRouter)
 app.use("/api/notes", notesRouter)
