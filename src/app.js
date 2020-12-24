@@ -13,9 +13,10 @@ const app = express();
 
 const morganOption = (NODE_ENV === 'production')
 
+app.use(cors());
 app.use(morgan(morganOption));
 app.use(helmet());
-app.use(cors());
+
 
 app.use(errorHandler)
 app.use(validateBearerToken);
