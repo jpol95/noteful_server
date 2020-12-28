@@ -7,4 +7,5 @@ describe('App', () => {
       .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
       .expect(200, 'Hello, world!')
   })
+  
 })

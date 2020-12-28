@@ -16,6 +16,7 @@ const notesService = {
         .then(rows => rows[0])
     }, 
     deleteNote(knex, id){
+        console.log('THIS IS AN ID' + id)
         return knex('notes')
         .where({id})
         .delete()
