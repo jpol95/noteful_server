@@ -11,7 +11,7 @@ const notesRouter = require('./notes/notes-router')
 const {CLIENT_ORIGIN} = require('./config');
 const app = express();
 
-const morganOption = (NODE_ENV === 'production')
+const morganOption = (NODE_ENV === 'production') ? "tiny" : "common"
 
 app.use(
   cors({
